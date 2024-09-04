@@ -17,7 +17,7 @@ kafka-console-producer --broker-list localhost:29092 --topic transactions
 > {"TXN_ID": 2011, "USERNAME": "megna", "RECIPIENT": "Verizon", "AMOUNT": 220,"TS":"2024-09-03 13:54:36"}
 ```
 
-# Create kafka topic with custom partitions
+## Create kafka topic with custom partitions
 kafka-topics --bootstrap-server localhost:29092 --topic <YOUR_TOPIC> --create --partitions <NUMBER>
 
 ## Delete kafka topic
