@@ -1,5 +1,5 @@
 
-# ksql_real_time_analytics
+# Real time analytics with KSQL
 ----------------------------------
 
 ## Create Kafka cluster and KSQL engine
