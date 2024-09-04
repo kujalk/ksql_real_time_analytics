@@ -27,3 +27,5 @@ kafka-topics --bootstrap-server localhost:29092 --delete --topic <YOUR_TOPIC>
 pip install kafka-python==2.0.2
 python producer.py -no_of_messages 100 -no_of_anomalies 10
 
+### Reference
+https://developer.confluent.io/tutorials/anomaly-detection/ksql.html
