@@ -5,10 +5,11 @@ import argparse
 from kafka import KafkaProducer
 
 class DataGenerator:
-    def __init__(self,no_of_messages,no_of_anomalies,broker='localhost:29092'):
+    def __init__(self,no_of_messages,no_of_anomalies,broker='localhost:29092',topic='transactions'):
         self.total_messages = no_of_messages
         self.total_anomalies = no_of_anomalies
         self.broker = broker 
+        self.topic = topic
 
     def _create_message(self,recipient) -> dict:
         return {
@@ -37,7 +38,7 @@ class DataGenerator:
                 recipient = random.choice(other_recipients)
             
             message = self._create_message(recipient)
-            producer.send('transactions', value=message)
+            producer.send(self.topic, value=message)
             print(f"Sent: {message}")
 
         producer.flush()
