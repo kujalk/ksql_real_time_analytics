@@ -33,6 +33,6 @@ FROM synthetic_transactions_diff
 EMIT CHANGES;
 
 ---
-drop table synthetic_transactions_diff;
-drop table synthetic_transactions_last_two;
-drop stream synthetic_transactions_stream;
+drop table if exists synthetic_transactions_diff delete TOPIC;
+drop table synthetic_transactions_last_two delete TOPIC;
+drop stream synthetic_transactions_stream delete TOPIC;
