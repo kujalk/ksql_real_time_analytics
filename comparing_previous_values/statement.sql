@@ -27,6 +27,7 @@ select *
 from synthetic_transactions_last_two
 where latest-previous > 200;
 
+
 ---
 SELECT * 
 FROM synthetic_transactions_diff
