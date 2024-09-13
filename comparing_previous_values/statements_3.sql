@@ -1,8 +1,10 @@
 CREATE TABLE synthetic_transactions_anomalies 
 WITH (kafka_topic='synthetic_transactions_anomalies', partitions=1, value_format='JSON',key_format='json') AS
 SELECT
-    server,
-    testsource,
+    server as server_key,
+    testsource as testsource_key,
+    AS_VALUE(server) AS server,
+    AS_VALUE(testsource) AS testsource,
     LATEST_BY_OFFSET(transactiontime) AS transactiontime,
     STDDEV_SAMPLE(transactiontime) AS stddev,
     AVG(transactiontime) AS avg_transactiontime,

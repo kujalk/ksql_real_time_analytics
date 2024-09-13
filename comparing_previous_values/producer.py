@@ -7,9 +7,9 @@ import argparse
 def get_random_record():
     """Generate a random record with server, transactiontime, and testsource."""
     record = {
-        "server": f"server{random.randint(1, 5)}",
+        "server": f"server{random.randint(1,2)}",
         "transactiontime": random.randint(20, 210),
-        "testsource": f"probe-{random.randint(1, 6)}"
+        "testsource": f"probe-{random.randint(1,3)}"
     }
     return record
 
