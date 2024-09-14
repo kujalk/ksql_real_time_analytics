@@ -9,14 +9,14 @@ def get_random_record():
     record = {
         "server": f"server{random.randint(1,2)}",
         "transactiontime": random.randint(20, 210),
-        "testsource": f"probe-{random.randint(1,3)}"
+        "testsource": f"probe-{random.randint(1,2)}"
     }
     return record
 
 def create_anomaly_record(previous_record):
     """Create an anomaly record with transactiontime > 200 more than the previous one."""
     anomaly_record = previous_record.copy()
-    anomaly_record["transactiontime"] = previous_record["transactiontime"] + random.randint(1000, 2800)
+    anomaly_record["transactiontime"] = previous_record["transactiontime"] + random.randint(500, 2800)
     return anomaly_record
 
 def send_data_to_kafka(topic, no_of_records, no_of_anomalies):
@@ -52,7 +52,7 @@ def send_data_to_kafka(topic, no_of_records, no_of_anomalies):
             i += 1
 
         # Optional: add a small delay to simulate processing time
-        time.sleep(0.1)
+        time.sleep(0.75)
 
     # Ensure all messages are sent
     producer.flush()
